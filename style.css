@@ -1,0 +1,179 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Latar belakang */
+body {
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Kontainer utama chat */
+.chat-container {
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background-color: #1a1a1a;
+  border: 3px solid #ffcc00;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+}
+
+/* Header tetap */
+.chat-header {
+  background-color: #ffcc00;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 3px solid #000;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.chat-header img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.chat-header h2 {
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Area chat */
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Pesan user & bot */
+.bot-message,
+.user-message {
+  display: flex;
+  align-items: flex-start;
+}
+
+.bot-message .message {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px 10px 10px 0;
+  max-width: 75%;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.user-message .message {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Input di bawah */
+.chat-input {
+  display: flex;
+  border-top: 2px solid #ffcc00;
+  background-color: #222;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background-color: #111;
+  color: #fff;
+  font-size: 14px;
+}
+
+.chat-input button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 0 18px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #000;
+  transition: background 0.3s;
+}
+
+.chat-input button:hover {
+  background-color: #ffdb4d;
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #ffcc00;
+  border-radius: 10px;
+}
+
+/* ===== Styling Markdown (hasil bot) ===== */
+
+.bot-message .message h1,
+.bot-message .message h2,
+.bot-message .message h3 {
+  color: #ffcc00;
+  font-weight: 700;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.bot-message .message p {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.bot-message .message ul {
+  margin: 4px 0 4px 15px;
+  padding-left: 10px;
+}
+
+.bot-message .message li {
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+
+.bot-message .message strong {
+  color: #ffcc00;
+}
+
+.bot-message .message em {
+  color: #ccc;
+}
+
+.bot-message .message a {
+  color: #ffcc00;
+  text-decoration: underline;
+}
