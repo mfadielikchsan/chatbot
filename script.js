@@ -2,8 +2,7 @@ const chatBox = document.getElementById("chat-box");
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 
-// ⚠️ Ganti dengan API key kamu
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 
 // Tambahkan pesan ke chat
 function addMessage(sender, text) {
@@ -127,3 +126,4 @@ chatForm.addEventListener("submit", async (e) => {
   chatBox.removeChild(typingDiv);
   addMessage("bot", botReply);
 });
+
