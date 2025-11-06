@@ -2,8 +2,6 @@ const chatBox = document.getElementById("chat-box");
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 
-const OPENAI_API_KEY = "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";
-
 // Tambahkan pesan ke chat
 function addMessage(sender, text) {
   const messageDiv = document.createElement("div");
@@ -30,31 +28,24 @@ function markdownToHTML(md) {
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
     .replace(/^\d+\.\s+(.*)$/gm, "• $1")
     .replace(/^\s*[-*]\s+(.*)$/gm, "• $1")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>') // markdown link
-    .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>') // auto-link URL polos
-    // Ganti 2+ enter menjadi 1 <br>
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>') 
+    .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>') 
     .replace(/\n{2,}/g, "<br>")
-    // Ganti enter tunggal jadi <br>
     .replace(/\n/g, "<br>")
-    // Hapus <br> ganda (biar ga dobel)
     .replace(/(<br>\s*){2,}/g, "<br>")
-    // Hapus <br> di awal & akhir
     .replace(/^(<br>)+|(<br>)+$/g, "")
     .trim();
 
   return html;
 }
 
-
-
 // Ambil respons dari OpenAI
 async function getBotResponse(userText) {
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://dark-tree-ca4b.fadielikchsan1905.workers.dev/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
@@ -126,4 +117,3 @@ chatForm.addEventListener("submit", async (e) => {
   chatBox.removeChild(typingDiv);
   addMessage("bot", botReply);
 });
-
